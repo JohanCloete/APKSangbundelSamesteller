@@ -193,7 +193,9 @@ namespace APKSangbundelSamesteller
                 count++;
             }
 
-            var fileName = "Erediens " + DateTime.Now.AddDays(1).ToString("yyyyMMdd") + " " + AandDagComboBox.Text;
+            var date = DateTime.Now;
+            // DateTime.DayOfWeek is an enum which evaluates to 0 for Sunday and 6 for Saturday when cast to int.
+            var fileName = "Erediens " + date.AddDays((7 - (int)date.DayOfWeek) % 7).ToString("yyyyMMdd") + " " + AandDagComboBox.Text;
             pptPresentation.SaveAs(Path.Combine(AppContext.BaseDirectory, fileName), PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
         }
 
