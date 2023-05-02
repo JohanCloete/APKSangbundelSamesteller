@@ -181,14 +181,14 @@ namespace APKSangbundelSamesteller
                     slide = slides.AddSlide(count, customLayout);
 
                     var path = Path.Combine(liedData.IsPsalm ? Psalms.FullFolderPath : Gesange.FullFolderPath, liedData.liedInfo.LiedNaam, image);
-                    slide.Shapes.AddPicture(path, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0, 720, 540);
+                    slide.Shapes.AddPicture(path, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0, pptPresentation.PageSetup.SlideWidth, pptPresentation.PageSetup.SlideHeight);
 
                     count++;
                 }
 
                 slide = slides.AddSlide(count, customLayout);
 
-                slide.Shapes.AddPicture(BlackImage.FullPath, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0, 720, 540);
+                slide.Shapes.AddPicture(BlackImage.FullPath, MsoTriState.msoFalse, MsoTriState.msoTrue, 0, 0, pptPresentation.PageSetup.SlideWidth, pptPresentation.PageSetup.SlideHeight);
 
                 count++;
             }
